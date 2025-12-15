@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+  "style": {
+    "cell": {
+      "stroke": "transparent"
+    }
+  }},
+  "vconcat": [
+    {
+      "width": 600,
+      "height": 600,
+      "title": {
+        "text": "",
+        "anchor": "start"
+      },
+      "data": {
+        "values": []
+      },
+      "encoding": {
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "axis": null
+        },
+        "x": {
+          "field": "Entity",
+          "type": "ordinal",
+          "sort": null,
+          "axis": {"domain": true, "grid": false, "labelFontSize": 17, "labelLimit": 0, "labelAngle": -90, "titleColor": "white"}
+        },
+        "opacity": {
+            "condition": {
+              "test": "datum.value == 0",
+            "value": 0
+          },
+            "value": 1
+        }
+      },
+      "layer": [
+        {
+          "mark": {"type": "bar"},
+          "encoding": {
+            "color": {
+              "condition":[
+                {"test": "datum.Entity === 'none'", "value": "#d8a27d"}
+              ],
+              "value": "#949d48"
+            },
+            "opacity": {
+              "condition": [
+                {"test": "datum.Entity === 'none'", "value": 1}
+              ],
+              "value": 1
+            },
+            "size": {
+              "condition": [
+                {"test": "datum.Entity === 'none'", "value": 30}
+              ],
+              "value": 40
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 0,
+            "dy": 0,
+            "xOffset": 0,
+            "yOffset": -16,
+            "angle": 0,
+            "align": "center",
+            "baseline": "middle",
+            "font": "serif",
+            "fontSize": 24,
+            "fontWeight": "normal",
+            "opacity": 1
+          },
+          "encoding": {
+            "text": {"field": "value", "type": "quantitative"},
+            "color": {"value": "#000000"},
+            "y": {"field": "value", "type": "quantitative"}
+          }
+        }
+      ]
+    }
+  ],
+  "name": "template"
+}

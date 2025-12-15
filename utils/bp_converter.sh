@@ -1,0 +1,1 @@
+python bp_converter.py --input_path /netpool/homes/wangyo/Dataset/ChartQA_VegaAltAir/vegas_userstudy --output_path /netpool/homes/wangyo/Dataset/ChartQA_VegaAltAir/vegas_userstudy_pie
